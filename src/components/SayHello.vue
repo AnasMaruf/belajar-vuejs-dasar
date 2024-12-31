@@ -21,8 +21,8 @@ function sayHello() {
   person.lastName = document.getElementById("lastName").value;
 }
 
-const fullName = computed(() => {
-  console.log("Fullname Called");
+const fullName = computed((oldName) => {
+  console.log(`Fullname Called ${oldName}`);
   return `${person.firstName} ${person.lastName}`;
 });
 
