@@ -1,9 +1,21 @@
 <template>
   <div>
-    <button v-on:click="increment">Increment {{ counter }}</button> <br />
-    <input type="text" placeholder="First Name" id="firstName" /><br />
-    <input type="text" placeholder="Last Name" id="lastName" /><br />
-    <button v-on:click="sayHello">Say Hello</button>
+    <form action="">
+      <button v-on:click="counter++">Increment {{ counter }}</button> <br />
+      <input
+        type="text"
+        placeholder="First Name"
+        id="firstName"
+        @input="changeFirstName"
+      /><br />
+      <input
+        type="text"
+        placeholder="Last Name"
+        id="lastName"
+        @input="changeLastName"
+      /><br />
+      <button v-on:click.prevent="sayHello">Say Hello</button>
+    </form>
   </div>
   <h1>Hello {{ fullName }}</h1>
 </template>
@@ -30,6 +42,14 @@ const counter = ref(0);
 function increment() {
   console.log("Increment called");
   counter.value++;
+}
+
+function changeFirstName(e) {
+  person.firstName = e.target.value;
+}
+
+function changeLastName(e) {
+  person.lastName = e.target.value;
 }
 </script>
 
