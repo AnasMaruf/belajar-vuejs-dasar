@@ -20,7 +20,7 @@
 </template>
 
 <script setup>
-import { ref, watch, watchEffect } from "vue";
+import { onWatcherCleanup, ref, watch, watchEffect } from "vue";
 
 const productId = ref("product1");
 const product = ref(null);
@@ -37,6 +37,9 @@ const product = ref(null);
 // );
 
 watchEffect(async (newVal, oldVal) => {
+  onWatcherCleanup(() => {
+    console.log("cleanup");
+  });
   const response = await fetch(`/${newVal}.json`);
   product.value = await response.json();
 });
