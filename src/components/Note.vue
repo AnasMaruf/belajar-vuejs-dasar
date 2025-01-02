@@ -19,7 +19,14 @@
 </template>
 
 <script setup>
-import { reactive, ref, useTemplateRef } from "vue";
+import {
+  onBeforeMount,
+  onMounted,
+  onUpdated,
+  reactive,
+  ref,
+  useTemplateRef,
+} from "vue";
 
 const notes = reactive([]);
 const note = ref("");
