@@ -36,6 +36,18 @@ function addNote() {
     });
   }
 }
+
+onBeforeMount(() => {
+  console.info("onBeforeMount");
+});
+
+onMounted(() => {
+  console.info("onMounted");
+});
+
+onUpdated(() => {
+  console.info("onUpdated");
+});
 </script>
 
 <style scoped></style>
