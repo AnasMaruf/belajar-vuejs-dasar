@@ -1,8 +1,35 @@
 <template>
-  <MyButton class="button" @click="clickHandler" />
+  <!-- <MyButton
+    class="button"
+    @click="clickHandler"
+    name="Anas"
+    contoh="Kurniawan"
+  /> -->
+  <div>
+    <Container title="Contoh Button">
+      <template #header="attributes">
+        <h1>Button App {{ attributes.counter }}</h1>
+      </template>
+      <template #default="attributes">
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium
+          vero eos aspernatur sequi, recusandae iste fuga laborum reiciendis
+          maiores blanditiis. {{ attributes.counter }}
+        </p>
+        <MyButton
+          class="button"
+          @click="clickHandler"
+          :name="attributes.counter"
+          contoh="Kurniawan"
+        />
+      </template>
+      <template #footer> Copyright 2024 @anasmaruf </template>
+    </Container>
+  </div>
 </template>
 
 <script setup>
+import Container from "./Container.vue";
 import MyButton from "./MyButton.vue";
 
 function clickHandler() {
